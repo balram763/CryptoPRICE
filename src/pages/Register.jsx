@@ -1,8 +1,9 @@
 import {Button,Card,CardContent,Container,TextField,Typography,} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { registerUser } from "../features/auth/authSlice";
+import Loading from "../components/Loading";
 
 const Register = () => {
 
@@ -11,7 +12,7 @@ const Register = () => {
 
   const navigate = useNavigate()
 
-  const {user} = useSelector((state)=>state.auth)
+  const {user,isLoading} = useSelector((state)=>state.auth)
 
 
  const [formData,setFormData] = useState({
@@ -33,10 +34,14 @@ const Register = () => {
    )
  }
 
- if(user){
-   navigate("/")
- }
-
+  useEffect(()=>{
+  if(user){
+    navigate("/")
+  }
+  if(isLoading){
+   return(<Loading/>)
+  }
+ },[user])
  const handleRegister = (e) => {
    e.preventDefault()
    dispatch(registerUser(formData))
