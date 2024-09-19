@@ -1,0 +1,30 @@
+a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+
+.hiii{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgb(100, 93, 230) 0%, rgb(143, 34, 162) 35%, rgba(0,212,255,1) 100%);
+  /* color: white; */
+}
+
+#cart{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgb(100, 93, 230) 0%, rgb(143, 34, 162)  35%, rgba(0,212,255,1) 100%);
+  color: rgb(237, 237, 255);
+}
+
+
+@media (max-width:880px) {
+  .hideThis{
+    display: none;
+  }
+  
+}
+@media (max-width:490px) {
+  .hidePrice{
+    display: none;
+  }
+}
