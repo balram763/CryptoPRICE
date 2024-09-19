@@ -4,6 +4,7 @@ import { loginUser } from "../features/auth/authSlice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 
 
 const Login = () => {
@@ -36,12 +37,16 @@ const Login = () => {
   }
 
 
-  const {user} = useSelector((state)=>state.auth)
+  const {user,isLoading} = useSelector((state)=>state.auth)
 
 useEffect(()=>{
   if(user){
     navigate("/")
    }
+  if(isLoading){
+    return (
+      <Loading/>
+  }
 
 },[user])
 
